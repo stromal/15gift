@@ -224,7 +224,7 @@ By transitioning to a more advanced model, the recommendation system can achieve
    - **Purpose:** Provides a comprehensive evaluation by checking the model's performance across many users, ensuring it generalizes well.
    - **Output:** Total hits and detailed evaluation for each user.
 
-### 8.2 Neural Collaborative Filtering (NCF) - PyTorch Model for Local Development
+### 8.2 Neural Collaborative Filtering (NCF) - PyTorch Model (Local Development)
 #### Summary
 - **Evaluation Results:** The current model shows limited effectiveness, with many users having zero hits in the recommendations. This indicates that the cosine similarity model is not capturing user preferences well, likely due to sparse interactions and limited user data.
 - **Next Steps:** Transitioning to a more advanced model like Neural Collaborative Filtering in PyTorch, which can learn better representations and capture complex interactions, is recommended for better performance and scalability.
