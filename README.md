@@ -1,6 +1,7 @@
-# 🐘 Scalable Content Recommendation System Using PyTorch
+# 🐳 Scalable Content Recommendation System Using PyTorch
+With code in `recsys.ipynb` file.
 
-## 0. Environment Setup
+## 📝 0.Environemnt Setup
 ### Objective
 Set up the development environment necessary for building and testing the recommendation system.
 
@@ -8,7 +9,7 @@ Set up the development environment necessary for building and testing the recomm
 - Install essential libraries and tools such as Python, PyTorch, and scikit-learn.
 - Configure the environment to ensure compatibility with the hardware, emphasizing GPU acceleration for efficient computation.
 
-## 1. Imports and Check GPU Availability
+## 📦 1. Imports and Check GPU Availability
 ### Objective
 Prepare the environment by importing necessary libraries and setting up the computing device.
 
@@ -17,7 +18,7 @@ Prepare the environment by importing necessary libraries and setting up the comp
 - Set the device to GPU if available (`torch.cuda.is_available()`).
 - Confirm the device being used to ensure GPU usage.
 
-## 2. Data Loading
+## 🍫 2. Data Loading
 ### Objective
 Load the dataset from the provided files to be used for building and evaluating the recommendation models.
 
@@ -26,7 +27,7 @@ Load the dataset from the provided files to be used for building and evaluating 
 - Load article metadata and embeddings from their respective files.
 - Confirm successful data loading by printing sample data or summary statistics.
 
-## 3. Summary of Loaded Data
+## 📈 3. Summary of Loaded Data
 ### Objective
 Provide a summary of the loaded data to understand its structure and basic statistics.
 
@@ -35,7 +36,7 @@ Provide a summary of the loaded data to understand its structure and basic stati
 - Print basic statistics such as the number of unique users, articles, and interactions.
 - Check for missing values or inconsistencies in the data.
 
-## 4. Data Verification
+## 🔍 4. Data Verification
 ### Objective
 Ensure the integrity and consistency of the loaded data.
 
@@ -44,7 +45,7 @@ Ensure the integrity and consistency of the loaded data.
 - Check for and handle any missing or invalid values.
 - Verify the ranges of numerical features to ensure they are reasonable.
 
-## 5. Exploratory Data Analysis (EDA)
+## 🕵️‍♂️ 5. Exploratory Data Analysis (EDA)
 ### Objective
 Explore the data's underlying patterns and relationships through visualizations and statistical summaries to inform model development.
 
@@ -55,7 +56,7 @@ Explore the data's underlying patterns and relationships through visualizations 
 - **Heatmap of User Interactions by Device Group and OS:** Visualize interactions across different device groups and operating systems using a heatmap.
 - **Session Size and Click Timestamp Correlation:** Use a scatter plot to examine the relationship between session sizes and click timestamps.
 
-## 6. Modeling Options
+## 🐠 6. All Model Options
 ### 1. Collaborative Filtering
 - **User-Based Collaborative Filtering**
   - **Description:** Recommends items by finding similar users and suggesting items they liked.
@@ -149,14 +150,14 @@ Explore the data's underlying patterns and relationships through visualizations 
 - **Pros:** Powerful for sequential decision-making and dynamic environments.
 - **Cons:** Requires a large amount of data and computational resources; complex to implement and tune.
 
-## 7. Modeling Tasks
-### 7.1 Small
+## 🔀 7. Split this Modeling task in to 2 answers
+### 7.1. Small
 - **Objective:** Create a recommendation model that performs well with limited data.
 - **Approach:** Item-Based Collaborative Filtering using cosine similarity.
 - **Benefits:** Stable and efficient for small, sparse datasets.
 - **Limitations:** Needs overlap in user interactions; may not capture complex preferences.
 
-### 7.2 Scalable
+### 7.2. Scalable
 - **Objective:** Deploy a scalable model for production with larger datasets.
 - **Approach:** Neural Collaborative Filtering (NCF) with PyTorch.
 - **Benefits:** Scalable, flexible, and supports advanced optimization.
@@ -295,7 +296,7 @@ By transitioning to a more advanced model, the recommendation system can achieve
    - **Purpose:** Provides comprehensive evaluation by checking the model's performance across many users.
    - **Output:** Total hits and detailed evaluation for each user.
 
-## 9. Deployment
+## 🚀 9. Deployment
 ### 9.1 PyTorch Model Optimization
 #### Summary
 Optimizing machine learning models involves improving the existing dataset and employing various advanced techniques to enhance model performance. By addressing the limitations of the current dataset and applying these optimization techniques, we can significantly improve the model's accuracy, scalability, and efficiency in a production environment.
