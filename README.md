@@ -174,4 +174,137 @@ Explore the data's underlying patterns and relationships through visualizations 
     - **Pros:** Performs well with sparse data, and easier to compute on smaller datasets.
     - **Cons:** Limited by the need for some overlap in user interactions with items.
 - **Key Steps:**
-  1. **Compute Similarity:** Calculate item-item similarity using metrics like cosine similarity
+  1. **Compute Similarity:** Calculate item-item similarity using metrics like cosine similarity.
+  2. **Generate Recommendations:** Recommend items similar to those the user has interacted with.
+  3. **Evaluate Performance:** Measure the accuracy using metrics like hit rate or precision.
+
+#### Evaluation
+- **Pros:** Simple to implement and understand, requires less data, and performs well on sparse datasets.
+- **Cons:** May not capture complex user preferences as effectively as more advanced models.
+- **Results:**
+  - Example: "Recommended articles: [157541, 68866, 157519, 162856, 159495, 157944, 156690, 158923, 157975, 157414]"
+  - Evaluation: "Number of hits in recommendations: 2"
+- **Problems:**
+  - Lack of Hits: The low number of hits indicates that the model is not accurately predicting the articles the user is likely to click on.
+  - Sparse Data: With small datasets, the model may not have enough interactions to accurately determine item similarities.
+  
+#### Possible Solutions
+- **Increase Data:** Collect more user interactions to improve the model's accuracy by providing more data to identify patterns.
+- **Hybrid Models:** Combining collaborative filtering with content-based methods could leverage the strengths of both approaches, improving recommendation quality.
+- **Regularization Techniques:** Applying regularization can prevent overfitting and improve generalization on unseen data.
+
+#### Transition to a More Advanced Model (e.g., PyTorch-based Model)
+- **Rationale:** Moving to a PyTorch-based model and adopting advanced deep learning techniques offers significant potential improvements:
+  - Enhanced Accuracy: Leveraging deep learning techniques can better understand and predict user preferences.
+  - Improved Performance: Advanced models can handle complex relationships and larger datasets more efficiently.
+  - Future Scalability: PyTorch's flexibility and scalability ensure that the recommendation system can grow with business needs.
+
+#### Future Steps
+- **Embedding Layers:** Learn better user and item representations using embedding layers.
+- **Neural Collaborative Filtering:** Implement neural networks to model user-item interactions, improving prediction accuracy.
+- **Hybrid Models:** Combine collaborative filtering with content-based methods for more personalized recommendations.
+
+By transitioning to a more advanced model, the recommendation system can achieve better performance and scalability, addressing the limitations observed with the simpler models.
+
+#### Explanation of the Four Coding Sections
+1. **Data Preparation and Recommendation Function**
+   - **Task:** This section prepares data and defines a function for recommending articles based on cosine similarity.
+   - **Purpose:** The function calculates the mean embedding of articles clicked by the user and finds the most similar articles using cosine similarity.
+   - **Output:** Recommended articles for a specific user.
+2. **Evaluation Function**
+   - **Task:** Defines a function to evaluate the recommendation system.
+   - **Purpose:** Compares the recommended articles with the actual articles clicked by the user to determine hits.
+   - **Output:** Number of hits in recommendations.
+3. **Train-Test Split and Training Recommendation Function**
+   - **Task:** Splits the user interactions into training and test sets and defines a function to recommend articles based on the training data.
+   - **Purpose:** Ensures the model is trained on a subset of data and evaluated on unseen data to check its performance.
+   - **Output:** Recommended articles for a user using training data.
+4. **Evaluation on Test Data**
+   - **Task:** Evaluates the recommendations on the test data for multiple users.
+   - **Purpose:** Provides a comprehensive evaluation by checking the model's performance across many users, ensuring it generalizes well.
+   - **Output:** Total hits and detailed evaluation for each user.
+
+### 8.2 Neural Collaborative Filtering (NCF) - PyTorch Model for Local Development
+#### Summary
+- **Evaluation Results:** The current model shows limited effectiveness, with many users having zero hits in the recommendations. This indicates that the cosine similarity model is not capturing user preferences well, likely due to sparse interactions and limited user data.
+- **Next Steps:** Transitioning to a more advanced model like Neural Collaborative Filtering in PyTorch, which can learn better representations and capture complex interactions, is recommended for better performance and scalability.
+
+#### Objective
+- **Goal:** Develop a scalable recommendation model using Neural Collaborative Filtering (NCF) that can be deployed in production and handle larger datasets effectively.
+
+#### Rationale
+- **Neural Collaborative Filtering:** Utilizes deep neural networks to model complex user-item interactions, providing flexibility and the capability to capture intricate patterns in user behavior.
+
+#### Implementation
+- **Algorithm:** Generalized Matrix Factorization (GMF) and Multi-Layer Perceptrons (MLPs).
+  - **Pros:** Highly adaptable, captures non-linear relationships, and scalable to large datasets.
+  - **Cons:** Requires substantial data and computational resources; prone to overfitting without proper regularization.
+
+#### Key Steps
+1. **Data Preparation:** Preprocess and normalize data to fit model requirements.
+2. **Model Training:** Train the NCF model using techniques like stochastic gradient descent.
+3. **Model Optimization:** Apply regularization techniques to prevent overfitting and use learning rate schedulers to enhance training.
+4. **Evaluate Performance:** Use cross-validation to assess model performance and tune hyperparameters.
+
+#### Evaluation
+- **Pros:** Handles large datasets, captures complex interactions, and adaptable to different scenarios.
+- **Cons:** Demands significant computational resources and careful tuning to avoid overfitting.
+
+#### Results and Evaluation Problems
+- **Training and Validation Loss:**
+  - **Consistency:** Training and validation losses are consistent across epochs and folds, indicating stable learning but also suggesting possible overfitting due to minimal improvement.
+  - **Example Outputs:**
+    ```
+    Epoch 1, Fold 1, Training Loss: 0.3146016976516235, Validation Loss: 0.3132745150602266
+    Epoch 2, Fold 1, Training Loss: 0.31327509368330053, Validation Loss: 0.3132680050945014
+    ...
+    Average Validation Loss across folds: 0.3132666
+    ```
+
+#### Possible Solutions
+- **Increase Data:** Collect more user interactions to improve model accuracy.
+- **Hybrid Models:** Combine collaborative filtering with content-based methods to enhance recommendation quality.
+- **Regularization:** Implement techniques like dropout and weight decay to prevent overfitting.
+
+#### Transition to a More Advanced Model
+- **Rationale:** Moving to a PyTorch-based model with advanced deep learning techniques offers significant potential improvements.
+  - **Enhanced Accuracy:** Deep learning techniques better understand and predict user preferences.
+  - **Improved Performance:** Advanced models handle complex relationships and larger datasets more efficiently.
+  - **Future Scalability:** PyTorch's flexibility and scalability ensure the recommendation system can grow with business needs.
+
+#### Features Used for Training
+- **User ID:** Unique identifier for each user.
+- **Article ID:** Unique identifier for each article clicked by users.
+- **Article Embeddings:** 250-dimensional vector representations of articles, capturing content and meaning.
+
+#### Explanation of the Four Coding Sections
+1. **Data Preparation and Recommendation Function**
+   - **Task:** Prepares data and defines a function for recommending articles based on cosine similarity.
+   - **Purpose:** Computes the mean embedding of articles clicked by the user and finds the most similar articles.
+   - **Output:** Recommended articles for a specific user.
+2. **Evaluation Function**
+   - **Task:** Defines a function to evaluate the recommendation system.
+   - **Purpose:** Compares recommended articles with actual articles clicked by the user to determine hits.
+   - **Output:** Number of hits in recommendations.
+3. **Train-Test Split and Training Recommendation Function**
+   - **Task:** Splits user interactions into training and test sets, and defines a function to recommend articles based on training data.
+   - **Purpose:** Ensures the model is trained on a subset of data and evaluated on unseen data to check performance.
+   - **Output:** Recommended articles for a user using training data.
+4. **Evaluation on Test Data**
+   - **Task:** Evaluates recommendations on test data for multiple users.
+   - **Purpose:** Provides comprehensive evaluation by checking the model's performance across many users.
+   - **Output:** Total hits and detailed evaluation for each user.
+
+## 9. Deployment
+### 9.1 PyTorch Model Optimization
+#### Summary
+Optimizing machine learning models involves improving the existing dataset and employing various advanced techniques to enhance model performance. By addressing the limitations of the current dataset and applying these optimization techniques, we can significantly improve the model's accuracy, scalability, and efficiency in a production environment.
+
+#### Objective
+Optimize the recommendation model for improved performance, scalability, and efficiency in a production environment.
+
+#### Reasons for Underfitting
+- **Insufficient Data Volume:** The dataset might not have enough interactions to capture meaningful patterns, leading to underfitting.
+- **Low Data Quality:** Noisy, missing, or irrelevant data can lead to poor model performance.
+- **Simplistic Model:** The current model architecture might be too simple to capture the complexity of user-item interactions.
+- **Feature Engineering:** Lack of relevant features can limit the
