@@ -1,4 +1,4 @@
-# Scalable Content Recommendation System Using PyTorch
+# 🐘 Scalable Content Recommendation System Using PyTorch
 
 ## 0. Environment Setup
 ### Objective
