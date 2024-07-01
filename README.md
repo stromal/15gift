@@ -1,5 +1,5 @@
 # 🐳 Scalable Content Recommendation System Using PyTorch
-With code in `recsys.ipynb` file.
+!!! Recomended to view `recsys.ipynb` file as that holds the code as well!
 
 ## 📝 0.Environemnt Setup
 ### Objective
